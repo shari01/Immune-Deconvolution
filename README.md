@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CIBERSORT (LM22) Runner — Python + rpy2</title>
 </head>
 <body>
 
@@ -105,10 +104,10 @@ pip install rpy2
 
 <h2>Usage Examples</h2>
 
-<h3>Bash / zsh (Linux/macOS)</h3>
+<h3>Bash / sh (Linux/macOS)</h3>
 <pre><code>python Cibersort.py \
-  --counts 'Bulk-data/TW-20250618_counts (4) (2).csv' \
-  --meta   'Bulk-data/TW-20250618 _metadata (1).csv' \
+  --counts 'Bulk-data/counts.csvv' \
+  --meta   'Bulk-data/meta.csv' \
   --lm22   'inst/extdata/LM22.txt' \
   --out    'CIBERSORT_outputs-v' \
   --perm 100 --qn false --chunk-size 40 --install
@@ -118,8 +117,8 @@ pip install rpy2
 
 <h3>Windows PowerShell</h3>
 <pre><code>python Cibersort.py `
-  --counts "Bulk-data/TW-20250618_counts (4) (2).csv" `
-  --meta   "Bulk-data/TW-20250618 _metadata (1).csv" `
+  --counts "Bulk-data/counts.csvv" `
+  --meta   "Bulk-data/meta.csv" `
   --lm22   "inst/extdata/LM22.txt" `
   --out    "CIBERSORT_outputs-v" `
   --perm 100 --qn false --chunk-size 40 --install
@@ -127,8 +126,8 @@ pip install rpy2
 
 <h3>Windows CMD</h3>
 <pre><code>python Cibersort.py ^
-  --counts "Bulk-data/TW-20250618_counts (4) (2).csv" ^
-  --meta   "Bulk-data/TW-20250618 _metadata (1).csv" ^
+  --counts "Bulk-data/counts.csvv" ^
+  --meta   "Bulk-data/meta.csv" ^
   --lm22   "inst/extdata/LM22.txt" ^
   --out    "CIBERSORT_outputs-v" ^
   --perm 100 --qn false --chunk-size 40 --install
@@ -207,43 +206,6 @@ pip install rpy2
 </ul>
 
 <hr />
-
-<h2>Troubleshooting</h2>
-
-<ol>
-<li><strong><code>rpy2</code> cannot find R</strong><br />
-   - Ensure <code>R</code> on PATH: <code>R --version</code>.<br />
-   - On Conda: <code>conda install -c conda-forge r-base</code>.<br />
-   - On macOS: install R from CRAN pkg; relaunch terminal.</li>
-<li><strong>Spaces/Parentheses in paths</strong><br />
-   - Quote paths exactly as they exist.  
-    Example: <code>"Bulk-data/TW-20250618 _metadata (1).csv"</code> (note the space before <code>_metadata</code>).</li>
-<li><strong><code>Missing counts/lm22</code></strong><br />
-   - The runner checks existence; use absolute paths or correct working directory.</li>
-<li><strong>“These columns are not numeric after coercion” (QA step)</strong><br />
-   - Ensure cell-type columns in <code>CIBERSORT_results.csv</code> are numeric.<br />
-   - The QA tries to strip %, commas, spaces; if columns were renamed or mangled by Excel, keep headers simple.</li>
-<li><strong>No overlapping <code>sample_id</code></strong><br />
-   - Metadata will be ignored if <code>sample_id</code> doesn’t match counts’ sample columns.</li>
-<li><strong>Poor QA everywhere</strong><br />
-   - Increase <code>--perm</code> (e.g., 1000).<br />
-   - Verify input scale (TPM vs raw). For raw counts, do <strong>not</strong> set <code>--qn true</code>.</li>
-</ol>
-
-<hr />
-
-<h2>Reproducible Environment (Docker, optional)</h2>
-
-<pre><code>FROM mambaorg/micromamba:1.5.8
-ARG DEBIAN_FRONTEND=noninteractive
-SHELL ["/bin/bash", "-lc"]
-
-
-# Create env with Python + R
-RUN micromamba create -n cibersort -y -c conda-forge python=3.11 r-base r-essentials \
- && micromamba clean --all -y
-SHELL ["micromamba", "run", "-n", "cibersort", "/bin/bash", "-lc"]
-
 
 # Python deps
 RUN pip install --no-cache-dir rpy2
@@ -333,8 +295,8 @@ python Cibersort.py --counts fake_counts.csv --lm22 inst/extdata/LM22.txt --out 
 <hr />
 
 <h3>One-liner to remember (Linux/macOS)</h3>
-<pre><code>python Cibersort.py --counts 'Bulk-data/TW-20250618_counts (4) (2).csv' \
-  --meta 'Bulk-data/TW-20250618 _metadata (1).csv' \
+<pre><code>python Cibersort.py --counts 'Bulk-data/counts.csvv' \
+  --meta 'Bulk-data/meta.csv' \
   --lm22 'inst/extdata/LM22.txt' \
   --out 'CIBERSORT_outputs-v' --perm 100 --qn false --chunk-size 40 --install
 </code></pre>
