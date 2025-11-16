@@ -19,7 +19,7 @@
 <h2>Features</h2>
 
 <ul>
-<li><strong>Input auto-detection</strong>: Treats inputs as TPM/RPKM if sample sums ≈ 1e6; otherwise computes <strong>TMM-normalized CPM</strong> (edgeR).</li>
+<li><strong>Input auto-detection</strong>: Treats inputs as TPM/RPKM <strong>TMM-normalized CPM</strong> (edgeR).</li>
 <li><strong>Metadata-aware</strong>: Optional metadata alignment by <code>sample_id</code>.</li>
 <li><strong>Artifacts</strong>:
   <ul>
