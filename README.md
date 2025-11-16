@@ -58,14 +58,23 @@
 
 <h2>Install</h2>
 
-<h3>Conda (recommended)</h3>
-<pre><code>conda create -n cibersort python=3.11 -y
-conda activate cibersort
-# System R (Conda build)
-conda install -c conda-forge r-base -y
-# Python deps
+<hr />
+
+<h2>Setup Instructions</h2>
+
+<h3>Create a Python virtual environment and install dependencies using pip</h3>
+<pre><code>python -m venv cibersort-env
+source cibersort-env/bin/activate   # On Linux/macOS
+cibersort-env\Scripts\activate.bat  # On Windows
+
+pip install --upgrade pip
 pip install rpy2
 </code></pre>
+
+<p>Ensure that a compatible version of <code>R</code> (≥ 4.0) is installed and accessible via your system <code>PATH</code>. Check by running:</p>
+<pre><code>R --version
+</code></pre>
+
 
 <p>If using a system R outside Conda, ensure <code>R</code> is discoverable: <code>R --version</code> works in the same shell.</p>
 
