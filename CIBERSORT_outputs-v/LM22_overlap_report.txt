@@ -1,4 +1,0 @@
-LM22 overlapping genes: 418 / 547 (76.4%)
-Files written:
- - C:\Users\shahr\Downloads\CIBERSORT-main\Cibersort-final-integration-immune-base\CIBERSORT_outputs-v/LM22_overlap_gene_values_by_sample.csv
- - C:\Users\shahr\Downloads\CIBERSORT-main\Cibersort-final-integration-immune-base\CIBERSORT_outputs-v/LM22_overlap_gene_summary.csv

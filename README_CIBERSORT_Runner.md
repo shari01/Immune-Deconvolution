@@ -84,8 +84,8 @@ python Cibersort.py --counts <file> --lm22 <file> --out <dir> [options]
 ### Bash / zsh (Linux/macOS)
 ```bash
 python Cibersort.py \
-  --counts 'Bulk-data/TW-20250618_counts (4) (2).csv' \
-  --meta   'Bulk-data/TW-20250618 _metadata (1).csv' \
+  --counts 'Bulk-data/count.csv' \
+  --meta   'Bulk-data/metadata (1).csv' \
   --lm22   'inst/extdata/LM22.txt' \
   --out    'CIBERSORT_outputs-v' \
   --perm 100 --qn false --chunk-size 40 --install
@@ -96,8 +96,8 @@ python Cibersort.py \
 ### Windows PowerShell
 ```powershell
 python Cibersort.py `
-  --counts "Bulk-data/TW-20250618_counts (4) (2).csv" `
-  --meta   "Bulk-data/TW-20250618 _metadata (1).csv" `
+  --counts "Bulk-data/count.csv" `
+  --meta   "Bulk-data/count.csv" `
   --lm22   "inst/extdata/LM22.txt" `
   --out    "CIBERSORT_outputs-v" `
   --perm 100 --qn false --chunk-size 40 --install
@@ -106,8 +106,8 @@ python Cibersort.py `
 ### Windows CMD
 ```cmd
 python Cibersort.py ^
-  --counts "Bulk-data/TW-20250618_counts (4) (2).csv" ^
-  --meta   "Bulk-data/TW-20250618 _metadata (1).csv" ^
+  --counts "Bulk-data/count.csv" ^
+  --meta   "Bulk-data/count.csv" ^
   --lm22   "inst/extdata/LM22.txt" ^
   --out    "CIBERSORT_outputs-v" ^
   --perm 100 --qn false --chunk-size 40 --install
@@ -171,7 +171,7 @@ python Cibersort.py ^
 
 2. **Spaces/Parentheses in paths**
    - Quote paths exactly as they exist.  
-     Example: `"Bulk-data/TW-20250618 _metadata (1).csv"` (note the space before `_metadata`).
+     Example: `"Bulk-data/meta.csv"` (note the space before `_metadata`).
 
 3. **`Missing counts/lm22`**
    - The runner checks existence; use absolute paths or correct working directory.
@@ -281,7 +281,7 @@ python Cibersort.py --counts fake_counts.csv --lm22 inst/extdata/LM22.txt --out 
 
 ### One-liner to remember (Linux/macOS)
 ```bash
-python Cibersort.py --counts 'Bulk-data/TW-20250618_counts (4) (2).csv' \
+python Cibersort.py --counts 'Bulk-data/count.csv' \
   --meta 'Bulk-data/TW-20250618 _metadata (1).csv' \
   --lm22 'inst/extdata/LM22.txt' \
   --out 'CIBERSORT_outputs-v' --perm 100 --qn false --chunk-size 40 --install
