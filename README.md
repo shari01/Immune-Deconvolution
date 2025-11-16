@@ -227,24 +227,7 @@ docker run --rm -v "$PWD":/work -w /work cibersort-runner \
 </code></pre>
 
 <hr />
-
-<h2>Development Notes</h2>
-
-<ul>
-<li><strong>Structure</strong>
-  <ul>
-    <li>Python orchestrates environment → calls two R blocks: <strong>main pipeline</strong> then <strong>QA</strong>.</li>
-    <li>Inputs are passed to R via <code>Sys.setenv</code> (keys prefixed <code>PY_…</code>).</li>
-  </ul>
-</li>
-<li><strong>Extending</strong>
-  <ul>
-    <li>Add new R blocks and set their env vars in <code>run_pipeline</code>.</li>
-    <li>Keep new outputs in a dedicated subfolder to avoid name collisions.</li>
-    <li>Prefer writing long-form/tidy CSVs alongside wide matrices.</li>
-  </ul>
-</li>
-</ul>
+>
 
 <hr />
 
@@ -285,12 +268,6 @@ python Cibersort.py --counts fake_counts.csv --lm22 inst/extdata/LM22.txt --out 
 <li><strong>Can I plug other signatures?</strong><br />
   Yes. Use any CIBERSORT-compatible signature matrix via <code>--lm22 &lt;path&gt;</code>; plots/QA still work.</li>
 </ul>
-
-<hr />
-
-<h2>License &amp; Ownership</h2>
-
-<p>Internal research tooling. Add an explicit license header if distributing outside your org.</p>
 
 <hr />
 
