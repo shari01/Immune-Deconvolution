@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1>CIBERSORT (LM22) Runner — Python + rpy2</h1>
+<h1>Immune cell deconvolution (CIBERSORT)</h1>
 
 <p>Run LM22-based immune cell deconvolution (CIBERSORT) from Python via <strong>rpy2</strong>, with an automated <strong>QA pass</strong> that validates and labels samples (“Excellent / Moderate / Poor”).</p>
 
